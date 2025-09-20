@@ -26,6 +26,9 @@ import { ShelterRoom } from '@/components/rooms/ShelterRoom';
 import { PolicyRoom } from '@/components/rooms/PolicyRoom';
 import energyIcon from '@/assets/energy-room-icon.jpg';
 import wasteIcon from '@/assets/waste-room-icon.jpg';
+import waterIcon from '@/assets/water-room-icon.svg';
+import shelterIcon from '@/assets/shelter-room-icon.svg';
+import policyIcon from '@/assets/policy-room-icon.svg';
 
 interface GameDashboardProps {
   playerData: { name: string; difficulty: string };
@@ -67,7 +70,7 @@ export const GameDashboard = ({ playerData, onExitGame }: GameDashboardProps) =>
       name: 'Water Crisis',
       description: 'Purify contaminated water supply systems',
       icon: Droplets,
-      image: null,
+      image: waterIcon,
       difficulty: 'Hard',
       estimatedTime: '15 min',
       points: 120,
@@ -78,7 +81,7 @@ export const GameDashboard = ({ playerData, onExitGame }: GameDashboardProps) =>
       name: 'Climate Refugee Zone',
       description: 'Build sustainable shelters for displaced families',
       icon: Home,
-      image: null,
+      image: shelterIcon,
       difficulty: 'Medium',
       estimatedTime: '13 min',
       points: 110,
@@ -89,7 +92,7 @@ export const GameDashboard = ({ playerData, onExitGame }: GameDashboardProps) =>
       name: 'Climate Policy Chamber',
       description: 'Negotiate global policies to save the planet',
       icon: Scale,
-      image: null,
+      image: policyIcon,
       difficulty: 'Expert',
       estimatedTime: '20 min',
       points: 150,
