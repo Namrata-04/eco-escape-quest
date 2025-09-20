@@ -1,0 +1,513 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Climate Escape Room Design System - Dark atmospheric theme with environmental color coding */
+
+@layer base {
+  :root {
+    /* Base Dark Theme */
+    --background: 220 13% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 13% 10%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 13% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Environmental Color Palette */
+    --primary: 142 76% 36%; /* Solution Green */
+    --primary-foreground: 220 13% 8%;
+
+    --crisis: 14 91% 55%; /* Crisis Orange */
+    --crisis-foreground: 210 40% 98%;
+
+    --danger: 0 84% 60%; /* Emergency Red */
+    --danger-foreground: 210 40% 98%;
+
+    --water: 200 94% 48%; /* Water Blue */
+    --water-foreground: 210 40% 98%;
+
+    --energy: 51 100% 50%; /* Energy Yellow */
+    --energy-foreground: 220 13% 8%;
+
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 13% 20%;
+    --muted-foreground: 215.4 16.3% 65%;
+
+    --accent: 220 13% 15%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 13% 20%;
+    --input: 220 13% 15%;
+    --ring: 142 76% 36%;
+
+    --radius: 0.75rem;
+
+    /* Environmental Gradients */
+    --gradient-crisis: linear-gradient(135deg, hsl(14 91% 55%), hsl(0 84% 60%));
+    --gradient-solution: linear-gradient(135deg, hsl(142 76% 36%), hsl(120 61% 34%));
+    --gradient-water: linear-gradient(135deg, hsl(200 94% 48%), hsl(195 100% 39%));
+    --gradient-energy: linear-gradient(135deg, hsl(51 100% 50%), hsl(45 93% 47%));
+    --gradient-atmospheric: linear-gradient(180deg, hsl(220 13% 8%), hsl(220 13% 12%));
+    --gradient-progress: linear-gradient(90deg, hsl(142 76% 36%), hsl(51 100% 50%));
+
+    /* Shadows & Effects */
+    --shadow-dramatic: 0 25px 50px -12px hsl(220 13% 8% / 0.8);
+    --shadow-crisis: 0 10px 30px -10px hsl(14 91% 55% / 0.4);
+    --shadow-solution: 0 10px 30px -10px hsl(142 76% 36% / 0.4);
+    --shadow-glow: 0 0 40px hsl(142 76% 36% / 0.3);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-dramatic: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Orbitron', monospace;
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  /* Gaming Interface Components */
+  .climate-card {
+    @apply bg-card border border-border rounded-lg p-6 shadow-lg;
+    box-shadow: var(--shadow-dramatic);
+  }
+
+  .crisis-card {
+    @apply bg-gradient-to-br;
+    background: var(--gradient-crisis);
+    box-shadow: var(--shadow-crisis);
+  }
+
+  .solution-card {
+    @apply bg-gradient-to-br;
+    background: var(--gradient-solution);
+    box-shadow: var(--shadow-solution);
+  }
+
+  .energy-grid {
+    @apply grid gap-2 p-4 bg-card/50 rounded-lg border;
+    backdrop-filter: blur(10px);
+  }
+
+  .progress-bar {
+    @apply h-2 rounded-full overflow-hidden;
+    background: var(--gradient-progress);
+  }
+
+  .timer-display {
+    @apply font-mono text-2xl font-bold tracking-wider;
+    font-family: 'Orbitron', monospace;
+    text-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+  }
+
+  .eco-points {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+    background: var(--gradient-solution);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .room-locked {
+    @apply opacity-50 pointer-events-none grayscale;
+  }
+
+  .room-active {
+    @apply ring-2 ring-primary/50 shadow-lg;
+    box-shadow: var(--shadow-solution);
+  }
+
+  .room-completed {
+    @apply border-primary/50 bg-primary/5;
+  }
+
+  /* Interactive Elements */
+  .puzzle-piece {
+    @apply cursor-grab active:cursor-grabbing transition-all duration-200;
+    transition: var(--transition-smooth);
+  }
+
+  .puzzle-piece:hover {
+    @apply scale-105 shadow-lg;
+    box-shadow: var(--shadow-solution);
+  }
+
+  .drag-over {
+    @apply bg-primary/20 border-primary border-dashed;
+  }
+
+  /* Animations */
+  .pulse-crisis {
+    animation: pulse-crisis 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .fade-in-up {
+    animation: fade-in-up 0.6s ease-out;
+  }
+
+  .slide-in-right {
+    animation: slide-in-right 0.5s ease-out;
+  }
+
+  .glow-effect {
+    @apply relative;
+  }
+
+  .glow-effect::before {
+    content: '';
+    @apply absolute inset-0 rounded-lg opacity-0 transition-opacity duration-300;
+    background: var(--gradient-solution);
+    filter: blur(20px);
+    z-index: -1;
+  }
+
+  .glow-effect:hover::before {
+    @apply opacity-30;
+  }
+}
+
+@layer utilities {
+  .font-gaming {
+    font-family: 'Press Start 2P', monospace;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+  }
+  
+  /* Game-style text effects */
+  .font-gaming.text-lg {
+    font-size: 0.875rem;
+  }
+  
+  .font-gaming.text-xl {
+    font-size: 1rem;
+  }
+  
+  .font-gaming.text-2xl {
+    font-size: 1.25rem;
+  }
+  
+  .font-gaming.text-3xl {
+    font-size: 1.5rem;
+  }
+  
+  /* Retro game text shadow */
+  .font-gaming.retro-shadow {
+    text-shadow: 2px 2px 0px #000, 4px 4px 0px #333;
+  }
+  
+  /* Pixelated button text */
+  .font-gaming.button-text {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .bg-gradient-crisis {
+    background: var(--gradient-crisis);
+  }
+
+  .bg-gradient-solution {
+    background: var(--gradient-solution);
+  }
+
+  .bg-gradient-water {
+    background: var(--gradient-water);
+  }
+
+  .bg-gradient-energy {
+    background: var(--gradient-energy);
+  }
+
+  .bg-gradient-atmospheric {
+    background: var(--gradient-atmospheric);
+  }
+
+  .text-crisis {
+    color: hsl(var(--crisis));
+  }
+
+  .text-danger {
+    color: hsl(var(--danger));
+  }
+
+  .text-water {
+    color: hsl(var(--water));
+  }
+
+  .text-energy {
+    color: hsl(var(--energy));
+  }
+
+  .border-crisis {
+    border-color: hsl(var(--crisis));
+  }
+
+  .border-water {
+    border-color: hsl(var(--water));
+  }
+
+  .border-energy {
+    border-color: hsl(var(--energy));
+  }
+
+  .shadow-dramatic {
+    box-shadow: var(--shadow-dramatic);
+  }
+
+  .shadow-crisis {
+    box-shadow: var(--shadow-crisis);
+  }
+
+  .shadow-solution {
+    box-shadow: var(--shadow-solution);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  /* Fun animation utilities */
+  .anim-pop-in {
+    animation: anim-pop-in 300ms var(--transition-smooth);
+  }
+
+  .anim-shake {
+    animation: anim-shake 400ms cubic-bezier(.36,.07,.19,.97) both;
+  }
+
+  .anim-bin-pulse {
+    animation: anim-bin-pulse 800ms ease-out 1;
+  }
+
+  .anim-glow {
+    box-shadow: 0 0 0 0 hsl(var(--primary) / 0.5);
+    animation: anim-glow 1200ms ease-out 1;
+  }
+
+  .sparkle {
+    position: absolute;
+    pointer-events: none;
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: currentColor;
+    opacity: 0;
+    animation: sparkle 700ms ease-out forwards;
+  }
+
+  /* Ambient game vibe */
+  .ambient-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+    overflow: hidden;
+  }
+
+  .ambient-particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    border-radius: 9999px;
+    background: hsl(var(--primary) / .6);
+    filter: blur(0.5px);
+    animation: float 10s linear infinite;
+  }
+
+  .bg-gradient-atmospheric-anim {
+    background: var(--gradient-atmospheric);
+    animation: gradient-shift-strong 16s ease-in-out infinite alternate;
+  }
+
+  .animate-in-up {
+    animation: fade-in-up 500ms ease-out both;
+  }
+
+  .animate-in-right {
+    animation: slide-in-right 500ms ease-out both;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes pulse-crisis {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.02);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes anim-pop-in {
+  0% { transform: scale(.8); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes anim-shake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60% { transform: translateX(4px); }
+}
+
+@keyframes anim-bin-pulse {
+  0% { box-shadow: 0 0 0 0 hsl(var(--primary) / .5); }
+  100% { box-shadow: 0 0 0 18px hsl(var(--primary) / 0); }
+}
+
+@keyframes anim-glow {
+  0% { box-shadow: 0 0 0 0 hsl(var(--primary) / .6); }
+  100% { box-shadow: 0 0 30px 4px hsl(var(--primary) / 0); }
+}
+
+@keyframes sparkle {
+  0% { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--dx, 20px), var(--dy, -20px)) scale(0.6); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0) translateX(0); opacity: .6; }
+  50% { opacity: 1; }
+  100% { transform: translateY(-120vh) translateX(20vw); opacity: 0; }
+}
+
+@keyframes gradient-shift-strong {
+  0% { filter: hue-rotate(0deg) saturate(1) brightness(1); }
+  50% { filter: hue-rotate(25deg) saturate(1.3) brightness(1.05); }
+  100% { filter: hue-rotate(50deg) saturate(1.5) brightness(1.12); }
+}
+
+/* Strong background FX helpers for BackgroundFX component */
+.bgfx-blob {
+  position: absolute;
+  width: 55vmax; height: 55vmax;
+  border-radius: 50%;
+  filter: blur(60px) saturate(1.4);
+  opacity: 0.22;
+}
+.bgfx-blob-1 { background: radial-gradient(circle at 30% 30%, hsl(var(--water)/.8), transparent 60%); left: -10vmax; top: -10vmax; animation: blob-move-1 22s ease-in-out infinite; }
+.bgfx-blob-2 { background: radial-gradient(circle at 70% 70%, hsl(var(--primary)/.9), transparent 60%); right: -12vmax; bottom: -12vmax; animation: blob-move-2 26s ease-in-out infinite; }
+.bgfx-blob-3 { background: radial-gradient(circle at 50% 50%, hsl(var(--energy)/.8), transparent 60%); left: 20%; bottom: -8vmax; animation: blob-move-3 28s ease-in-out infinite; }
+
+@keyframes blob-move-1 { 0%{transform:translate(0,0)} 50%{transform:translate(8vmax,4vmax)} 100%{transform:translate(0,0)} }
+@keyframes blob-move-2 { 0%{transform:translate(0,0)} 50%{transform:translate(-6vmax,-5vmax)} 100%{transform:translate(0,0)} }
+@keyframes blob-move-3 { 0%{transform:translate(0,0)} 50%{transform:translate(4vmax,-6vmax)} 100%{transform:translate(0,0)} }
+
+.bgfx-star {
+  position: absolute;
+  width: 2px; height: 2px; border-radius: 9999px;
+  background: white; opacity: .08;
+  box-shadow: 0 0 8px 2px hsl(0 0% 100% / .35);
+  animation: star-drift 18s linear infinite;
+}
+@keyframes star-drift { 0%{ transform: translateY(0) } 100%{ transform: translateY(-40vh) } }
+
+.bgfx-sweep {
+  background: linear-gradient(35deg, transparent 30%, hsl(var(--primary)/.08), transparent 70%);
+  animation: sweep 12s linear infinite;
+  transform: rotate(-12deg);
+}
+@keyframes sweep {
+  0%{ transform: translateX(-20%) rotate(-12deg); }
+  100%{ transform: translateX(20%) rotate(-12deg); }
+}
